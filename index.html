@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dobrodružství s křečkem pro Rudíka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Progress bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress"></div>
+    </div>
+
+    <!-- Úvodní obrazovka -->
+    <div class="screen active" id="intro-screen">
+        <div class="intro-content">
+            <div class="hamster-welcome">🐹</div>
+            <h1 class="intro-title">Ahoj Rudíku!</h1>
+            <p class="intro-subtitle">Pomůžeš mi najít kamaráda?</p>
+            <button class="start-button" onclick="startGame()">START! 🎮</button>
+        </div>
+    </div>
+
+    <!-- Úkol 1: Nakrm křečka -->
+    <div class="screen" id="task1-screen">
+        <div class="task-instruction">Nakrm hladového křečka! 🍎</div>
+        <div class="task-container">
+            <div class="hamster-hungry" id="hamster1">🐹</div>
+            <div class="food-bowl" id="bowl"></div>
+            <div class="food-items" id="foodItems">
+                <div class="food-item" data-food="true">🌻</div>
+                <div class="food-item" data-food="true">🍎</div>
+                <div class="food-item" data-food="false">🚗</div>
+                <div class="food-item" data-food="true">🧀</div>
+                <div class="food-item" data-food="false">👟</div>
+            </div>
+        </div>
+        <button class="next-button" onclick="nextTask()">Další ➡️</button>
+    </div>
+
+    <!-- Úkol 2: Najdi křečka -->
+    <div class="screen" id="task2-screen">
+        <div class="task-instruction">Najdi křečka v hoblinách! ✋</div>
+        <div class="scratch-container">
+            <div class="hamster-hidden">🐹</div>
+            <canvas id="scratch-canvas"></canvas>
+        </div>
+        <button class="next-button" onclick="nextTask()">Další ➡️</button>
+    </div>
+
+    <!-- Úkol 3: Puzzle -->
+    <div class="screen" id="task3-screen">
+        <div class="task-instruction">Poskládej obrázek křečka! 🧩</div>
+        <div class="puzzle-container" id="puzzleContainer"></div>
+        <button class="next-button" onclick="nextTask()">Další ➡️</button>
+    </div>
+
+    <!-- Úkol 4: Chytání semínek -->
+    <div class="screen" id="task4-screen">
+        <div class="task-instruction">Chyť 10 semínek do misky! 🌻</div>
+        <div class="game-area" id="gameArea">
+            <div class="score-display">🌻 <span id="seedScore">0</span> / 10</div>
+            <div class="bowl-container" id="bowlContainer">
+                <div class="bowl" id="bowl4"></div>
+            </div>
+        </div>
+        <button class="next-button" onclick="nextTask()">Další ➡️</button>
+    </div>
+
+    <!-- Finální obrazovka -->
+    <div class="screen" id="final-screen">
+        <div class="final-text">🎉 Zvládl jsi to! 🎉</div>
+        <div class="final-text">Máš pro tebe překvapení!</div>
+        <button class="gift-button" onclick="showVideo()">🎁</button>
+    </div>
+
+    <!-- Video obrazovka -->
+    <div class="screen" id="video-screen">
+        <video id="hamster-video" controls autoplay>
+            <source src="Video_s_kr_ec_kem_pro_Rudi_ka.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
