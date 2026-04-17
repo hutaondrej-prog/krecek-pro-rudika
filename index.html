@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dobrodružství s křečkem pro Rudíka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Progress bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress"></div>
+    </div>
+
+    <!-- Audio button -->
+    <button class="audio-button" id="audioBtn">🔊</button>
+
+    <!-- Úvodní obrazovka -->
+    <div class="screen active" id="intro-screen">
+        <div class="intro-content">
+            <div class="hamster-welcome">🐹</div>
+            <h1 class="intro-title">Ahoj Rudíku!</h1>
+            <p class="intro-subtitle">Pomůžeš mi najít kamaráda?</p>
+            <button class="start-button" onclick="startGame()">START! 🎮</button>
+        </div>
+    </div>
+
+    <!-- Úkol 1: Nakrm křečka -->
+    <div class="screen" id="task1-screen">
+        <div class="task-instruction">Nakrm hladového křečka! 🍎</div>
+        <div class="task-container">
+            <div class="hamster-hungry" id="hamster1">🐹</div>
+            <div class="food-bowl" id="bowl">
+                <span id="bowl-content"></span>
+            </div>
+            <div class="food-items" id="foodItems">
+                <div class="food-item" data-food="true" draggable="true">🌻</div>
+                <div class="food-item" data-food="true" draggable="true">🍎</div>
+                <div class="food-item" data-food="false" draggable="true">🚗</div>
+                <div class="food-item" data-food="true" draggable="true">🧀</div>
+                <div class="food-item" data-food="false" draggable="true">👟</div>
+            </div>
+        </div>
+        <button class="next-button" onclick="nextTask()">Další ➡️</button>
+    </div>
+
+    <!-- Úkol 2: Najdi křečka -->
+    <div class="screen" id="task2-screen">
+        <div class="task-instruction">Najdi křečka v hoblinách! ✋</div>
+        <div class="scratch-container">
+            <div class="hamster-hidden">
+                🐹
+            </div>
+            <canvas id="scratch-canvas"></canvas>
+        </div>
+        <button class="next-button" onclick="nextTask()">Další ➡️</button>
+    </div>
+
+    <!-- Úkol 3: Puzzle -->
+    <div class="screen" id="task3-screen">
+        <div class="task-instruction">Poskládej obrázek křečka! 🧩</div>
+        <div class="puzzle-container" id="puzzleContainer">
+            <!-- Puzzle pieces will be added by JS -->
+        </div>
+        <button class="next-button" onclick="nextTask()">Další ➡️</button>
+    </div>
+
+    <!-- Úkol 4: Chyť semínko -->
+    <div class="screen" id="task4-screen">
+        <div class="task-instruction">Chyť 5 semínek! 🌻</div>
+        <div class="catch-game" id="catchGame">
+            <div class="score-display">🌻 <span id="seedScore">0</span>/5</div>
+        </div>
+        <button class="next-button" onclick="nextTask()">Další ➡️</button>
+    </div>
+
+    <!-- Úkol 5: Udělej teplo -->
+    <div class="screen" id="task5-screen">
+        <div class="task-instruction">Zahřej křečka! 🌈</div>
+        <div class="house-container cold" id="house">
+            <div class="hamster-in-house">🐹</div>
+            <div class="cotton-overlay" id="cottonOverlay"></div>
+        </div>
+        <div class="color-balls" id="colorBalls">
+            <div class="color-ball" style="background: linear-gradient(135deg, #FF6B6B, #FF8E53);"></div>
+            <div class="color-ball" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);"></div>
+            <div class="color-ball" style="background: linear-gradient(135deg, #FFA07A, #FF7F50);"></div>
+            <div class="color-ball" style="background: linear-gradient(135deg, #FFE66D, #FFEB3B);"></div>
+            <div class="color-ball" style="background: linear-gradient(135deg, #A8E6CF, #81C784);"></div>
+        </div>
+        <button class="next-button" onclick="nextTask()">Další ➡️</button>
+    </div>
+
+    <!-- Finální obrazovka -->
+    <div class="screen" id="final-screen">
+        <div class="final-text">🎉 Zvládl jsi to! 🎉</div>
+        <div class="final-text">Máš pro tebe překvapení!</div>
+        <button class="gift-button" onclick="showVideo()">🎁</button>
+    </div>
+
+    <!-- Video obrazovka -->
+    <div class="screen" id="video-screen">
+        <video id="hamster-video" controls autoplay>
+            <source src="Video_s_kr_ec_kem_pro_Rudi_ka.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
